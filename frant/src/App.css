@@ -1,0 +1,237 @@
+body {
+  font-family:  nunito sans;
+}
+h1 , h2 , h3 , h4 , h5 , h6{
+  font-family: playfair display;
+  color: #212529;
+}
+a {
+  text-decoration:  none;
+  color: #000;
+  cursor: pointer;
+}
+.logo_img
+{
+  width:  50px;
+}
+.top
+{
+  margin-top: 50px;
+}
+.fca{
+background: none;
+color:#08a8ec ;
+  border: 2.5px solid #08a8ec;
+  border-radius: 25px;
+  padding: 7px 15px;
+  cursor: pointer;
+}
+.fca:hover{
+  color: #fff;
+    background-color: #08a8ec;
+    transition: .5s;
+  border: 2.5px solid #08a8ec;
+  cursor: pointer;
+}
+.gca{
+  background: none;
+    color: green;
+    border: 2.5px solid green;
+    border-radius: 25px;
+    padding: 7px 15px;
+  cursor: pointer;
+}
+.gca:hover {
+  color: #fff;
+  background-color: green;
+  transition: .5s;
+  border: 2.5px solid green;
+  cursor: pointer;
+}
+.sgc
+{
+  color: red;
+}
+
+.gc{
+  background: none;
+  color: #212529;
+    border: 2.5px solid #212529;
+    border-radius: 25px;
+    padding: 7px 15px;
+    cursor: pointer;
+}
+.gc:hover{
+  color: #fff;
+    background-color: #212529;
+    transition: .5s;
+    cursor: pointer;
+}
+
+.gtitle{
+  font-family: poppins;
+  margin-left: 60px;
+}
+.gcard
+{
+  cursor: pointer;
+}
+.gbg{
+  background-color: aliceblue;
+}
+.sbtn
+{
+  background-color: #535f6a;
+  padding: 6px 12px;
+  border-radius: 5px;
+  color: #fff;
+  border: none;
+}
+
+/* Loding Spinner */
+.loader {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #212429;
+  border-bottom-color: transparent;
+  border-radius: 50%;
+  display: inline-block;
+  box-sizing: border-box;
+  animation: rotation 1s linear infinite;
+}
+
+@keyframes rotation {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+.lodeh{
+  position: absolute;
+  left: 48%;
+  top: 45%;
+}
+.logo{
+  width: 10%;
+  position: absolute;
+  
+}
+.google_mail{
+  margin-left: 60px;
+}
+.google_title{
+  width: 15%;;
+}
+.facebook_title{
+  width: 20%;
+}
+.google_title1{
+  width: 23%;
+}
+.create_new{
+  margin-top: -30px;
+}
+.bigimg {
+  height: 200px;
+}
+
+.bg {
+  /* background-color: #00cddf; */
+  border: 2px solid #999;
+}
+.manage
+{
+  width: 23%;
+}
+/* --------------------------------------------------    Home Page  ------------------------ */
+.pagination {
+  box-shadow: 0px 0px 3px #7b8086;
+}
+.sideR {
+  border-right: 2px solid #d6d8da;
+  cursor: pointer;
+  background-color: rgb(156, 61, 61);
+  color: #fff;
+}
+.sideL {
+  border-left: 2px solid #d6d8da;
+  cursor: pointer;
+  background-color: rgb(37, 122, 37);
+  color: #fff;
+}
+.rdb {
+  background-color: #e2f1fa;
+}
+.no {
+  position: absolute;
+  top: -10px;
+  right: 5px;
+  background-color: green;
+  color: #fff;
+  padding: 2px 5px;
+  border-radius: 50%;
+  font-size: 12px;
+}
+.rdb {
+  position: absolute;
+  right: 20px;
+  top: 85px;
+  background-color: #212529;
+  border-radius: 0px;
+}
+.rdb i {
+  color: orange;
+  padding: 10px 15px;
+}
+
+
+/* ----------------------------------     Order page   ------------------------- */
+
+
+
+.smallimg {
+  height: 140px;
+}
+.itemcenter {
+  height: 160px;
+  align-items: center;
+}
+.tItem {
+  font-weight: 600;
+  font-size: 22px;
+}
+.paytitle {
+  margin-top: 17px;
+  height: 334px;
+}
+.tpay {
+  position: absolute;
+  left: 882px;
+  width: 37%;
+}
+.bd {
+  border: 2px solid #999;
+}
+.cancel {
+  background-color: rgb(179, 0, 0);
+  color: #fff;
+  padding: 0px 0px;
+  border-radius: 50%;
+}
+.setno {
+  background-color: rgb(19, 78, 19);
+  color: #fff;
+  padding: 3px 6px;
+  border-radius: 50%;
+  font-size: 12px;
+  position: relative;
+  top: 5px;
+}
+.pointer {
+  cursor: pointer;
+  margin-right: 20px;
+  margin-top: 10px ;
+}
