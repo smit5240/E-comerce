@@ -49,12 +49,20 @@ router.post("/login", async (req, res) => {
     } else {
       const verify = await Register.findOne({ email });
       if (verify) {
-        const { email, name, _id } = verify;
-        const data = { email, name, _id };
-        const token = await jwt.sign(data, key);
-        return res
-          .status(200)
-          .send({ status: 200, message: "Login Successfull", token: token });
+        console.log("verify", verify);
+        const mathch = await bcrypt.compare(password, verify.password);
+        if (!mathch) {
+          return res
+            .status(402)
+            .send({ ERROR: "Invalid Creadientials", status: 402, mathch });
+        } else {
+          const { email, name, _id } = verify;
+          const data = { email, name, _id };
+          const token = await jwt.sign(data, key);
+          return res
+            .status(200)
+            .send({ status: 200, message: "Login Successfull", token: token });
+        }
       } else {
         return res
           .status(404)

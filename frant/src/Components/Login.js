@@ -1,11 +1,13 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import { TextField } from "./TextField";
 import * as yup from "yup";
 import { Formik, Form } from "formik";
 import axios from "axios";
 import { useNavigate } from "react-router-dom";
+import Loding from "./Loding";
 
 export default function Login() {
+  const [lode, setLode] = useState(false);
   const navigate = useNavigate();
   const tokens = localStorage.getItem("token");
   useEffect(() => {
@@ -14,19 +16,22 @@ export default function Login() {
     }
   }, []);
   const Rclick = async (value) => {
+    setLode(true);
     await axios
       .post("http://localhost:4200/login", value)
       .then((res) => {
         let token = res.data.token;
         localStorage.setItem("token", token);
         if (token) {
+          setLode(false);
           navigate("/home");
         }
         window.alert(res.data.message);
       })
       .catch((err) => {
+        setLode(false);
         console.log("error===> ", err);
-        window.alert("User Allready Registed", err);
+        window.alert(err);
       });
   };
 
@@ -47,55 +52,68 @@ export default function Login() {
     >
       {(formik) => (
         <div>
-          <div className="mt-5 ">
-            <div className="container  top">
-              <div className="row justify-content-center">
-                <div className=" col-12 d-flex justify-content-center item-center pt-4">
-                  <h2>Sign-in</h2>
-                </div>
-                <div className="col-12">
-                  <div className="row justify-content-center pb-5 mt-5">
-                    <div className="col-sm-10 col-md-8 col-lg-7 col-xl-6">
-                      <Form>
-                        <div className="mb-3">
-                          <TextField lable="Email" name="email" type="email" />
-                        </div>
-                        <div className="mb-3">
-                          <TextField
-                            lable="Password"
-                            name="password"
-                            type="password"
-                          />
-                        </div>
-                        <button className=" sbtn" type="submit">
-                          Submit
-                        </button>
-                      </Form>
+          <div className="lodeh">
+            <div className="d-flex justify-content-center align-item-center mb-5">
+              {lode === true && <Loding />}
+            </div>
+          </div>
+          {lode === false ? (
+            <div className="mt-5 ">
+              <div className="container  top">
+                <div className="row justify-content-center">
+                  <div className=" col-12 d-flex justify-content-center item-center pt-4">
+                    <h2>Sign-in</h2>
+                  </div>
+                  <div className="col-12">
+                    <div className="row justify-content-center pb-5 mt-5">
+                      <div className="col-sm-10 col-md-8 col-lg-7 col-xl-6">
+                        <Form>
+                          <div className="mb-3">
+                            <TextField
+                              lable="Email"
+                              name="email"
+                              type="email"
+                            />
+                          </div>
+                          <div className="mb-3">
+                            <TextField
+                              lable="Password"
+                              name="password"
+                              type="password"
+                            />
+                          </div>
+                          <button className=" sbtn" type="submit">
+                            Submit
+                          </button>
+                        </Form>
+                      </div>
                     </div>
                   </div>
-                </div>
 
-                <div className="col-12 d-flex justify-content-center mt-3">
-                  Don't have an Account ?{" "}
-                  <a className="sgc ms-3" href="/signup">
-                    {" "}
-                    Sign-Up
-                  </a>
-                </div>
-                <div className=" col-12 d-flex justify-content-center mt-4 mb-5">
-                  <a className="gca m-2 " href="/gotogoogle">
-                    <i className="fa-brands fa-google me-2 "></i>Continue With
-                    Google
-                  </a>
-                  <a className="fca m-2 fca" href="/gotofacebook">
-                    {" "}
-                    <i className="fa-brands fa-facebook me-2"></i>Continue With
-                    Facebook
-                  </a>
+                  <div className="col-12 d-flex justify-content-center mt-3">
+                    Don't have an Account ?{" "}
+                    <a className="sgc ms-3" href="/signup">
+                      {" "}
+                      Sign-Up
+                    </a>
+                  </div>
+                  <div className=" col-12 d-flex justify-content-center mt-4 mb-5">
+                    <a className="gca m-2 " href="/gotogoogle">
+                      <i className="fa-brands fa-google me-2 "></i>Continue With
+                      Google
+                    </a>
+                    <a className="fca m-2 fca" href="/gotofacebook">
+                      {" "}
+                      <i className="fa-brands fa-facebook me-2"></i>Continue
+                      With Facebook
+                    </a>
+                  </div>
                 </div>
               </div>
             </div>
-          </div>
+          ) : (
+            ""
+          )}
         </div>
       )}
     </Formik>

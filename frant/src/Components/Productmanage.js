@@ -56,11 +56,11 @@ export default function Productmanage() {
         <div className="row">
           {product &&
             product.map((item) => (
-              <div className="col-sm-12 col-md-4 col-lg-3 d-flex justify-content-center bg  my-2 mx-2 mt-3 manage ms-3">
+              <div className="col-sm-12 col-md-4 col-lg-3 d-flex justify-content-center bg  my-2 ">
                 <div key={item._id}>
                   <img className="mt-3 bigimg" src={item.img} alt="" />
                   <p className="mb-1 d-flex justify-content-center ">
-                    Name :{item.name}
+                    Name : {item.name.slice(0, 19)}
                   </p>
                   <p className="d-flex justify-content-center">
                     price : <strong> $ {item.price} </strong>

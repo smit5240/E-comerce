@@ -35,6 +35,7 @@ export default function Googleform() {
         }
       })
       .catch((err) => {
+        setLode(false);
         console.log("error===> ", err);
         window.alert(err);
       });

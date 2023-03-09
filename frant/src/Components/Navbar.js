@@ -108,7 +108,7 @@ export default function Navbar() {
                   onClick={() => logoutbtn()}
                 >
                   {" "}
-                  react toast vapar Logout
+                  Logout
                 </Link>
               </li>
             ) : (

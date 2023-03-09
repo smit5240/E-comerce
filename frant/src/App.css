@@ -146,6 +146,12 @@ color:#08a8ec ;
 {
   width: 23%;
 }
+.errorpage{
+  height: 100vh;
+  width: 100wh;
+  object-fit: cover;
+  
+}
 /* --------------------------------------------------    Home Page  ------------------------ */
 .pagination {
   box-shadow: 0px 0px 3px #7b8086;
@@ -177,7 +183,7 @@ color:#08a8ec ;
 }
 .rdb {
   position: absolute;
-  right: 20px;
+  right: 1%;
   top: 85px;
   background-color: #212529;
   border-radius: 0px;
@@ -192,26 +198,17 @@ color:#08a8ec ;
 
 
 
-.smallimg {
-  height: 140px;
-}
-.itemcenter {
-  height: 160px;
-  align-items: center;
-}
+
+
 .tItem {
   font-weight: 600;
   font-size: 22px;
 }
 .paytitle {
   margin-top: 17px;
-  height: 334px;
+  /* height: 334px; */
 }
-.tpay {
-  position: absolute;
-  left: 882px;
-  width: 37%;
-}
+
 .bd {
   border: 2px solid #999;
 }
@@ -234,4 +231,34 @@ color:#08a8ec ;
   cursor: pointer;
   margin-right: 20px;
   margin-top: 10px ;
+}
+
+@media only screen and (min-width: 1375px) {
+  .smallimg {
+    height: 140px;
+  }
+}
+@media only screen and (max-width: 575px) {
+  .smallimg {
+    height: 180px !important;
+    margin: 8px 0px;
+  } 
+    .itemcenter {
+    display: flex;
+    justify-content: center;
+  }
+  .font{
+    font-size: 18px;
+  }
+    .bd {
+      border: 2px solid #999;
+      margin: 0px 10px;
+    }
+
+}
+@media only screen and (min-width: 575px) {
+  .itemcenter {
+  height: 160px;
+  align-items: center;
+}
 }

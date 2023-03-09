@@ -34,6 +34,12 @@ export default function Home() {
           console.log("error==>", error);
         });
     }
+    if (Cart.cart.length <= 0) {
+      let data = { name: "smit" };
+      localStorage.setItem("404page", data);
+    } else {
+      localStorage.removeItem("404page");
+    }
   }, []);
   const incerease = (addtocart, index) => {
     const temp = [];
@@ -69,6 +75,7 @@ export default function Home() {
       .then((res) => {
         let data = { ...res.data.message, cart };
         addTocart(data);
+        navigate("/order");
       })
       .catch((err) => {
         console.log("err==>", err);
@@ -77,7 +84,7 @@ export default function Home() {
 
   return (
     <div>
-      <div className="lodeh">
+      <div className="lodeh black">
         <div className="d-flex justify-content-center align-item-center mb-5">
           {lode === true && <Loding />}
         </div>
@@ -103,17 +110,17 @@ export default function Home() {
       )}
       {lode === false ? (
         <div className="container">
-          <div className="row">
+          <div className="row justify-content-center ">
             {product &&
               product.map((item, index) => (
                 <div
-                  className="col-sm-12 col-md-4 col-lg-3 d-flex justify-content-center bg  my-2 mx-2 mt-3 manage ms-3"
+                  className="col-10 col-sm-6  col-md-4 col-lg-3 d-flex justify-content-center bg  my-2 "
                   key={item._id}
                 >
                   <div>
                     <img className="mt-3 bigimg" alt="" src={item.img} />
                     <p className="mb-1 d-flex justify-content-center ">
-                      Name : {item.name}
+                      Name : {item.name.slice(0, 19)}
                     </p>
                     <p className="d-flex justify-content-center">
                       price : <strong> $ {item.price}</strong>
@@ -138,7 +145,7 @@ export default function Home() {
                     <div className=" d-flex justify-content-center mb-3">
                       <button
                         className="btn btn-primary"
-                        type=" rese"
+                        type=""
                         onClick={() => {
                           buyproductbtn(item._id, item.addTocart, index);
                         }}

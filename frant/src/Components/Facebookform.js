@@ -45,6 +45,7 @@ export default function Facebookform() {
           navigate("/gotofacebook");
         })
         .catch((error) => {
+          setlode(false);
           console.log("ERROR==>", error);
           window.alert(error);
         });
